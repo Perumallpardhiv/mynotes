@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mynotes/config/size_config.dart';
-import 'package:mynotes/constants/colors.dart';
-import 'package:mynotes/extentions/buildcontext/loc.dart';
-import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
-import 'package:mynotes/services/auth/bloc/auth_event.dart';
-import 'package:mynotes/services/auth/bloc/auth_state.dart';
-import 'package:mynotes/utilities/dialogs/error_dialog.dart';
-import 'package:mynotes/utilities/dialogs/password_reset.dart';
+
+import '/config/size_config.dart';
+import '/constants/colors.dart';
+import '/extentions/buildcontext/loc.dart';
+import '/services/auth/bloc/auth_bloc.dart';
+import '/services/auth/bloc/auth_event.dart';
+import '/services/auth/bloc/auth_state.dart';
+import '/utilities/dialogs/error_dialog.dart';
+import '/utilities/dialogs/password_reset.dart';
 
 class ForgotPasswordView extends StatefulWidget {
-  const ForgotPasswordView({Key? key}) : super(key: key);
+  const ForgotPasswordView({super.key});
 
   @override
   State<ForgotPasswordView> createState() => _ForgotPasswordViewState();
@@ -42,7 +43,6 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
             await showPasswordResetSentDialog(context);
           }
           if (state.exception != null) {
-            if (!mounted) return;
             await showErrorDialog(
               context,
               context.loc.forgot_password_view_generic_error,
